@@ -1,0 +1,10 @@
+{
+  "name": "rollup-plugin-react-refresh",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Paul Sweeney",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-refresh": "^0.6.0"
+  }
+}
