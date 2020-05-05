@@ -20,13 +20,7 @@ let config = {
         }),
         babel(),
         node_resolve(),
-        commonjs({
-            namedExports: {
-                'node_modules/react/index.js': [
-                    'Component', 'useState', 'useEffect'
-                ]
-            }
-        }),
+        commonjs(),
         process.env.NODE_ENV === 'development' && refresh()
     ]
 }
@@ -36,13 +30,7 @@ if (process.env.NODE_ENV === 'production') {
         static_files({
             include: ['./public']
         }),
-        terser({
-            compress: {
-                global_defs: {
-                    module: false
-                }
-            }
-        })
+        terser()
     ]);
 }
 

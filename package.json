@@ -5,6 +5,9 @@
   "author": "Paul Sweeney",
   "license": "MIT",
   "peerDependencies": {
-    "react-refresh": "^0.6.0"
+    "react-refresh": "^0.8.2"
+  },
+  "devDependencies": {
+    "react-refresh": "^0.8.2"
   }
 }

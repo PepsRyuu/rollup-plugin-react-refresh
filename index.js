@@ -3,13 +3,19 @@ let fs = require('fs');
 let runtime = fs.readFileSync(require.resolve('react-refresh/cjs/react-refresh-runtime.development.js'), 'utf8');
 
 runtime = runtime.replace('process.env.NODE_ENV', JSON.stringify(process.env.NODE_ENV));
-runtime = runtime.replace('module.exports = ', 'window.$RefreshRuntime$ = ');
 
 module.exports = function () {
     return {
         nollupBundleInit () {
             return `
-                ${runtime};
+                (function () {
+                    let exports = {}; let module = { exports: exports };
+
+                    ${runtime};
+
+                    window.$RefreshRuntime$ = exports;
+                })();
+                
                 window.$RefreshRuntime$.injectIntoGlobalHook(window);
                 window.$RefreshReg$ = () => {};
                 window.$RefreshSig$ = () => type => type;
