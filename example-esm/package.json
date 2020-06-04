@@ -1,0 +1,26 @@
+{
+    "scripts": {
+        "clean": "shx rm -rf dist",
+        "start": "cross-env NODE_ENV=development nollup -c --hot --content-base public --port 9001",
+        "build": "npm run clean && cross-env NODE_ENV=production rollup -c"
+    },
+    "dependencies": {
+        "react": "npm:@pika/react@^16.13.1",
+        "react-dom": "npm:@pika/react-dom@^16.13.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/preset-react": "^7.0.0",
+        "cross-env": "^5.2.0",
+        "nollup": "^0.11.0",
+        "react-refresh": "^0.8.2",
+        "rollup": "^2.7.6",
+        "rollup-plugin-alias": "^2.2.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-react-refresh": "file:..",
+        "rollup-plugin-static-files": "0.0.1",
+        "rollup-plugin-terser": "^5.1.1",
+        "shx": "^0.3.2"
+    }
+}
