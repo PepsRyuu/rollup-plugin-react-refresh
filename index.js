@@ -4,7 +4,7 @@ let runtime = fs.readFileSync(require.resolve('react-refresh/cjs/react-refresh-r
 
 runtime = runtime.replace('process.env.NODE_ENV', JSON.stringify(process.env.NODE_ENV));
 
-module.exports = function (opts = {}) {
+function ReactRefresh (opts = {}) {
     return {
         nollupBundleInit () {
             return `
@@ -124,3 +124,5 @@ module.exports = function (opts = {}) {
         }
     }
 }
+
+module.exports = ReactRefresh;
