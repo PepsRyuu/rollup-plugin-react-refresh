@@ -4,7 +4,7 @@ let runtime = fs.readFileSync(require.resolve('react-refresh/cjs/react-refresh-r
 
 runtime = runtime.replace('process.env.NODE_ENV', JSON.stringify(process.env.NODE_ENV));
 
-module.exports = function () {
+module.exports = function (opts = {}) {
     return {
         nollupBundleInit () {
             return `
@@ -106,7 +106,10 @@ module.exports = function () {
                 return;
             } 
 
-            if (code.indexOf('React.createElement') === -1) {
+            if (
+                code.indexOf('React.createElement') === -1 && // React < 17
+                code.indexOf('react/jsx') === -1 // React 17+ (react/jsx-runtime & react/jsx-dev-runtime)
+            ) {
                 return;
             }
 
